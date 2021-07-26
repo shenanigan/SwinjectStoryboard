@@ -1,12 +1,16 @@
+// swift-tools-version:5.0
+
 import PackageDescription
 
 let package = Package(
     name: "SwinjectStoryboard",
     products: [
-        .library(name: "SwinjectStoryboard", targets: ["SwinjectStoryboard-iOS"]),
+        .library(name: "SwinjectStoryboard-iOS", targets: ["SwinjectStoryboard-iOS"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.7.1")
+    ],
     targets: [
-        .target(name: "SwinjectStoryboard", dependencies: [], path: "Sources"),
+        .target(name: "SwinjectStoryboard-iOS", dependencies: ["Swinject"], path: "Sources"),
     ]
 )
